@@ -1,0 +1,114 @@
+{
+  "name": "swx-time-tracker",
+  "displayName": "Time Tracker - Work Time Tracking",
+  "description": "Automatic time tracking for VS Code with Git integration and comment functionality",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "timeTracker.startTracking",
+        "title": "Start Time Tracking",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.stopTracking",
+        "title": "Stop Time Tracking",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.addComment",
+        "title": "Add Comment",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.showReport",
+        "title": "Show Time Report",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.resetToday",
+        "title": "Reset Today",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.exportData",
+        "title": "Export Data",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.openSessionEditor",
+        "title": "Open Session Editor",
+        "category": "Time Tracker"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "timeTrackerView",
+          "name": "Time Tracker",
+          "when": "true"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "timeTracker",
+          "title": "Time Tracker",
+          "icon": "$(clock)"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Time Tracker",
+      "properties": {
+        "timeTracker.autoStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically start tracking when VS Code opens"
+        },
+        "timeTracker.autoStop": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically stop tracking when VS Code closes"
+        },
+        "timeTracker.idleThreshold": {
+          "type": "number",
+          "default": 300,
+          "description": "Idle threshold in seconds"
+        },
+        "timeTracker.trackGitCommits": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically use Git commits as comments"
+        },
+        "timeTracker.commitMessagePrefix": {
+          "type": "string",
+          "default": "GIT: ",
+          "description": "Prefix for Git commit comments"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
