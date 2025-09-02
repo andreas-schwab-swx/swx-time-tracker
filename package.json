@@ -3,6 +3,21 @@
   "displayName": "Time Tracker - Work Time Tracking",
   "description": "Automatic time tracking for VS Code with Git integration and comment functionality",
   "version": "0.0.1",
+  "publisher": "softworx by andreas schwab",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreas-schwab-swx/swx-time-tracker"
+  },
+  "homepage": "https://github.com/andreas-schwab-swx/swx-time-tracker#readme",
+  "bugs": {
+    "url": "https://github.com/andreas-schwab-swx/swx-time-tracker/issues"
+  },
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Andreas Schwab",
+    "email": "andreas.schwab@softworx.at"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
