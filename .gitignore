@@ -46,3 +46,6 @@ coverage/
 # AI
 AGENTS.md
 CLAUDE.md
+
+# Debug files
+timetracker-globalstate-*.json

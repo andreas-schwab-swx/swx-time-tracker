@@ -3,8 +3,15 @@
   "displayName": "Time Tracker - Work Time Tracking",
   "description": "Automatic time tracking for VS Code with Git integration and comment functionality",
   "version": "0.0.1",
-  "publisher": "softworx by andreas schwab",
+  "publisher": "softworx-as",
   "icon": "icon.png",
+  "files": [
+    "out/**",
+    "package.json",
+    "LICENSE.md",
+    "README.md",
+    "icon.png"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/andreas-schwab-swx/swx-time-tracker"
@@ -64,6 +71,16 @@
         "command": "timeTracker.openSessionEditor",
         "title": "Open Session Editor",
         "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.showStorageUri",
+        "title": "Show Storage Uri (Debug)",
+        "category": "Time Tracker"
+      },
+      {
+        "command": "timeTracker.exportGlobalState",
+        "title": "Export GlobalState Data (JSON)",
+        "category": "Time Tracker"
       }
     ],
     "views": {
@@ -100,8 +117,13 @@
         },
         "timeTracker.idleThreshold": {
           "type": "number",
+          "default": 600,
+          "description": "Idle threshold in seconds (default: 10 minutes)"
+        },
+        "timeTracker.autoSaveInterval": {
+          "type": "number",
           "default": 300,
-          "description": "Idle threshold in seconds"
+          "description": "Auto-save interval in seconds (default: 5 minutes, 0 to disable)"
         },
         "timeTracker.trackGitCommits": {
           "type": "boolean",
@@ -122,8 +144,16 @@
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
     "@types/node": "16.x",
-    "typescript": "^4.9.4"
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^3.6.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.35.0",
+    "generator-code": "^1.11.12",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.4",
+    "yo": "^1.4.2"
   }
 }
